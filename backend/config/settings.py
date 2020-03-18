@@ -38,7 +38,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-
+    'apps.articles',
+    'apps.users',
 ]
 
 DEV_APPS = [
@@ -226,7 +227,7 @@ AUTHENTICATION_BACKENDS = [
 
 # Custom user app defaults
 # Select the correct user model
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User'
 
 
 # DJANGO REST FRAMEWORK
@@ -234,7 +235,7 @@ AUTHENTICATION_BACKENDS = [
 REST_FRAMEWORK = {
     'UPLOADED_FILES_USE_URL': False,
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication'
     ],
