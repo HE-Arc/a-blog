@@ -27,8 +27,8 @@ class Article(models.Model):
     image = models.ImageField(verbose_name='Image', blank=True, null=True, default="placeholder-image.png")
     slug = models.SlugField(max_length=300, blank=True, null=True, unique=True)
     created_at = models.DateTimeField(verbose_name='Created at', auto_now_add=timezone.now)
-    category = models.ForeignKey('Category', related_name='articles', on_delete=models.CASCADE)
-    author = models.ForeignKey('User', related_name='articles', on_delete=models.DO_NOTHING)
+    category = models.ForeignKey('Category', related_name='articles', on_delete=models.CASCADE, null=False)
+    author = models.ForeignKey('users.User', related_name='articles', on_delete=models.DO_NOTHING, null=False)
 
     def __str__(self):
         return self.title

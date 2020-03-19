@@ -1,4 +1,4 @@
-from random import Random
+import random
 
 import forgery_py
 
@@ -135,7 +135,7 @@ class Command(BaseCommand):
                     title=article_data['title'],
                     description=article_data['description'],
                     body=article_data['body'],
-                    author=Random.choice(User.objects.all())
+                    author=random.choice(User.objects.all())
                 )
                 self.success_message(
                     f'\t\033[1mArticle\033[0m "{article.title}"'
