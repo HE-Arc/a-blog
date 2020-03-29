@@ -5,7 +5,7 @@ from apps.users.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     registered_at = serializers.DateTimeField(format='%H:%M %d.%m.%Y', read_only=True)
-    picture = serializers.ImageField(read_only=True, max_length=None, use_url=True, required=False)
+    picture = serializers.ImageField(max_length=None, use_url=True, required=False)
     full_name = serializers.SerializerMethodField(read_only=True)
     short_name = serializers.SerializerMethodField(read_only=True)
 

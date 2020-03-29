@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -33,7 +34,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    # 'rest_framework_simplejwt',
+    'rest_framework_simplejwt',
     'corsheaders',
 ]
 
@@ -159,10 +160,11 @@ STATICFILES_FINDERS = [
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = '/media'
+MEDIA_ROOT = BASE_DIR / "media"
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-MEDIA_URL = f"{MEDIA_ROOT}/"
+# MEDIA_URL = f"{MEDIA_ROOT}/"
+MEDIA_URL = f"/media/"
 
 # URL Configuration
 # ------------------------------------------------------------------------------
@@ -235,7 +237,7 @@ AUTH_USER_MODEL = 'users.User'
 REST_FRAMEWORK = {
     'UPLOADED_FILES_USE_URL': False,
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication'
     ],
@@ -251,6 +253,33 @@ REST_FRAMEWORK = {
         'contact': '1/hour'
     }
 }
+
+# JSON Web Token Authentication
+# ------------------------------------------------------------------------------
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+
+    'JTI_CLAIM': 'jti',
+
+    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
 
 # CORS
 # ------------------------------------------------------------------------------
@@ -268,3 +297,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
 # FILE_UPLOAD_PERMISSIONS = 0o644
+
+
+
+# DEV
+# ------------------------------------------------------------------------------
+
+LOREM_API = 'https://jaspervdj.be/lorem-markdownum/markdown.txt'
+DEV_IMAGES_API = "https://picsum.photos"

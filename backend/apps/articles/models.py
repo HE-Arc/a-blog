@@ -28,7 +28,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=300, blank=True, null=True, unique=True)
     created_at = models.DateTimeField(verbose_name='Created at', auto_now_add=timezone.now)
     category = models.ForeignKey('Category', related_name='articles', on_delete=models.CASCADE, null=False)
-    author = models.ForeignKey('users.User', related_name='articles', on_delete=models.DO_NOTHING, null=False)
+    author = models.ForeignKey('users.User', related_name='articles', on_delete=models.CASCADE, null=False)
 
     def __str__(self):
         return self.title

@@ -3,8 +3,6 @@ from rest_framework import routers
 from apps.articles.views import ArticleViewSet
 from apps.articles.views import CategoryViewSet
 
-
-# Settings
 from apps.users.views import UserViewSet
 
 

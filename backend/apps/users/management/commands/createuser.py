@@ -5,6 +5,8 @@ from django.db.utils import IntegrityError
 from forgery_py import internet
 from forgery_py import name
 
+from utils.helpers import fetch_random_image
+
 
 class Command(BaseCommand):
     help = 'Creates random users.'
@@ -32,6 +34,9 @@ class Command(BaseCommand):
                     last_name=name.last_name(),
                     password="solsolsol",
                 )
+
+                user.picture = fetch_random_image(f"vignette_{user.full_name}")
+                user.save()
 
                 self.stdout.write(
                     self.style.SUCCESS(

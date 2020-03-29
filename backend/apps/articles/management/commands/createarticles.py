@@ -1,32 +1,20 @@
 import random
+from random import randint
 
 import forgery_py
-
-from random import randint
+from django.conf import settings
+from django.core.management.base import BaseCommand
+from django.core.management.base import CommandError
+from django.db.utils import IntegrityError
 from requests import get
 
-from django.db.utils import IntegrityError
-from django.core.files.uploadedfile import SimpleUploadedFile
-
-from django.core.management.base import (
-    BaseCommand,
-    CommandError
-)
-
-from apps.articles.models import (
-    Article,
-    Category
-)
-
-import json
-
+from apps.articles.models import Article
+from apps.articles.models import Category
 from apps.users.models import User
-
-
-json.dumps(None)
+from utils.helpers import fetch_random_image
+from utils.helpers import generate_random_img_url
 
 LOREM = forgery_py.lorem_ipsum
-
 
 class Command(BaseCommand):
     help = 'Creates articles and categories with random content.'
@@ -125,16 +113,17 @@ class Command(BaseCommand):
                 f'\033[1mCategory\033[0m "{category.name}" '
                 f'\033[92mcreated\033[0m ({a_count} articles).')
 
-            for articles in range(a_count):
-                article_data = self.create_article()
+            for i in range(a_count):
+                article_content = self.create_article()
+                image_name = "{}_{}".format(name, str(i).zfill(2))
                 article = Article.objects.create(
                     highlighted=not randint(0, 2),
                     published=True,
-                    image=self.get_image(name),
+                    image=fetch_random_image(image_name),
                     category=category,
-                    title=article_data['title'],
-                    description=article_data['description'],
-                    body=article_data['body'],
+                    title=article_content['title'],
+                    description=article_content['description'],
+                    body=article_content['body'],
                     author=random.choice(User.objects.all())
                 )
                 self.success_message(
@@ -142,9 +131,8 @@ class Command(BaseCommand):
                     f' \033[92mcreated\033[0m.')
 
     def create_article(self):
-        api_url = 'https://jaspervdj.be/lorem-markdownum/markdown.txt'
         api_args = "?no-code=on"
-        api = f"{api_url}{api_args}"
+        api = f"{settings.LOREM_API}{api_args}"
 
         splitted_text = get(api).text.split("\n")
         article = {
@@ -156,7 +144,7 @@ class Command(BaseCommand):
             if line == "" and not randint(0, 5):
                 width = randint(320, 720)
                 height = int(width // 1.5)
-                image = self.get_img_url(width, height)
+                image = generate_random_img_url(width, height)
                 article['body'].append(f"\n![]({image})\n")
             else:
                 article['body'].append(line)
@@ -164,22 +152,11 @@ class Command(BaseCommand):
         article['body'] = "\n".join(article['body'])
         return article
 
-    def get_img_url(self, width=640, height=480):
-        api = "https://picsum.photos"
-        return f"{api}/{width}/{height}"
-
     def success_message(self, message):
         self.stdout.write(self.style.SUCCESS(message))
 
     def error_message(self, message):
         self.stdout.write(self.style.ERROR(message))
-
-    def fetch_image(self):
-        return get(self.get_img_url())
-
-    def get_image(self, name):
-        image = self.fetch_image()
-        return SimpleUploadedFile(f"{name}.jpg", image.content, "image/jpeg")
 
     def debug(self):
         args = ["c_count", "a_count", "clear", "count", "is_empty"]
