@@ -2,8 +2,9 @@
   <v-app :style="backgroundColor" id="app">
     <Dialog />
 
-    <drawer-admin v-if="isAdministrator" />
-    <drawer-moderator v-else-if="isModerator" />
+    <drawer-admin/>
+<!--    <drawer-admin v-if="isAdministrator" />-->
+<!--    <drawer-moderator v-else-if="isModerator" />-->
 
     <v-content>
       <v-app-bar
@@ -20,7 +21,7 @@
 
           <v-flex align-self-center shrink>
             <nuxt-link class="navbar-title title mx-5" to="/manage">
-              SNASE: Administration
+              A-Blog: Administration
             </nuxt-link>
           </v-flex>
 
@@ -45,13 +46,10 @@
       <v-layout>
         <v-spacer />
         <v-flex style="text-align: center">
-          <span class="mr-3 copyright">
-            Copyright &copy; {{ new Date().getFullYear() }} <b>SNASE</b>
-          </span>
           <span class="design-and-code">
             Design & code:
             <a class="link ml-1" href="mailto:jrosk.managment@gmail.com">
-              Sol Rosca
+              Jrosk
             </a>
           </span>
         </v-flex>
@@ -81,17 +79,17 @@ export default {
   },
   data: () => ({}),
   computed: {
-    role() {
-      if (this.$store.state.auth.loggedIn) {
-        return this.$store.state.auth.user.is_staff ? "admin" : "moderator";
-      }
-    },
-    isAdministrator() {
-      return this.role === "admin";
-    },
-    isModerator() {
-      return this.role === "moderator";
-    },
+    // role() {
+    //   if (this.$store.state.auth.loggedIn) {
+    //     return this.$store.state.auth.user.is_staff ? "admin" : "moderator";
+    //   }
+    // },
+    // isAdministrator() {
+    //   return this.role === "admin";
+    // },
+    // isModerator() {
+    //   return this.role === "moderator";
+    // },
     backgroundColor() {
       return this.$vuetify.theme.dark ? "" : "background-color: white";
     }

@@ -1,14 +1,11 @@
 from uuid import uuid4
 
 from rest_framework import status
+from rest_framework import viewsets
 from rest_framework.permissions import (
     AllowAny,
     IsAuthenticated,
     IsAdminUser
-)
-
-from apps.auth.permissions import (
-    MixedPermissionModelViewSet
 )
 
 from rest_framework.decorators import action
@@ -18,6 +15,7 @@ from rest_framework.response import Response
 from django.contrib.auth import authenticate, login
 from django.conf import settings
 from apps.users.models import User
+from apps.users.permissions import MixedPermissionModelViewSet
 from apps.users.serializers import UserSerializer, UserWriteSerializer
 
 
@@ -39,6 +37,14 @@ class UserViewSet(MixedPermissionModelViewSet):
         'password_reset': [AllowAny],
         'password_change': [AllowAny],
     }
+
+    def retrieve(self, request, *args, **kwargs):
+        print("\n\n")
+        print("ICIII")
+        print("\n\n")
+        if kwargs.get('pk') == 'current':
+            return Response(self.get_serializer(request.user).data)
+        return super().retrieve(request, args, kwargs)
 
     def get_serializer_class(self):
         if self.action in ['list', 'retrieve']:

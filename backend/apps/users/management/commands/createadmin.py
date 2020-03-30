@@ -17,8 +17,8 @@ class Command(BaseCommand):
 
             User.objects.create_superuser(settings.SUPER_ADMIN_EMAIL,
                                           settings.SUPER_ADMIN_PASSWORD,
-                                          first_name="Admin",
-                                          last_name="Super")
+                                          first_name="Bonny",
+                                          last_name="Em")
             self.stdout.write(self.style.SUCCESS(f'Successfully created super admin user '))
 
         except (IntegrityError, CommandError):

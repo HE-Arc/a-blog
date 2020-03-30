@@ -61,7 +61,6 @@ export const actions = {
       }
       this.$notifications("error", message);
     } finally {
-      console.log(this.$auth.user);
       commit("RESET_DATA");
       callback();
     }

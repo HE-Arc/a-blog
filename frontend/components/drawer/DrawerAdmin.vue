@@ -27,17 +27,9 @@ export default {
   components: { DrawerBase, User },
   data: () => ({
     elements: [
-      {
-        label: "Catégories",
-        icon: "mdi-folder-edit-outline",
-        to: "/manage/categories"
-      },
+      { label: "Catégories", icon: "mdi-folder-edit-outline", to: "/manage/categories" },
       { label: "Associations", icon: "mdi-home-city", to: "/manage/groups" },
-      {
-        label: "Externes",
-        icon: "mdi-account-multiple",
-        to: "/manage/externals"
-      },
+      { label: "Externes", icon: "mdi-account-multiple", to: "/manage/externals" },
       { label: "Newsletters", icon: "mdi-email", to: "/manage/newsletters" },
 
     ]

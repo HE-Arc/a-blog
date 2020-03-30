@@ -34,7 +34,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'rest_framework_simplejwt',
+    # 'rest_framework_simplejwt',
     'corsheaders',
 ]
 
@@ -257,8 +257,25 @@ REST_FRAMEWORK = {
 # JSON Web Token Authentication
 # ------------------------------------------------------------------------------
 SIMPLE_JWT = {
+    # # 'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    # # 'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+    # # 'ROTATE_REFRESH_TOKENS': True,
+    # # 'BLACKLIST_AFTER_ROTATION': False,
+    # # 'ALGORITHM': 'HS256',
+    # # 'SIGNING_KEY': SECRET_KEY,
+    # # 'VERIFYING_KEY': None,
+    # # 'AUTH_HEADER_TYPES': ('JWT',),
+    # # 'USER_ID_FIELD': 'id',
+    # # 'USER_ID_CLAIM': 'user_id',
+    # # 'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    # # 'TOKEN_TYPE_CLAIM': 'token_type',
+    #
+    # 'JWT_ALLOW_REFRESH': True,
+    # 'JWT_EXPIRATION_DELTA': timedelta(hours=1),
+    # 'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
+
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
 
@@ -287,10 +304,7 @@ SIMPLE_JWT = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-# CORS_ORIGIN_WHITELIST = (
-#     'http://0.0.0.0:3030',
-#     'http://0.0.0.0:3000',
-# )
+CORS_ORIGIN_WHITELIST = DOMAIN,
 
 # Permissions
 # ------------------------------------------------------------------------------

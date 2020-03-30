@@ -81,6 +81,7 @@ export default {
         store: this.$store,
         fields: ["email", "password"]
       });
+      
       this.lostForm = new BaseForm({
         store: this.$store,
         fields: ["email"]

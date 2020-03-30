@@ -3,7 +3,7 @@
     <v-container class="mt-5" align-content-center grid-list-xl fluid>
       <v-layout wrap>
         <v-flex>
-          <entity-card :group="group" width="400" />
+<!--          <entity-card :group="group" width="400" />-->
         </v-flex>
       </v-layout>
     </v-container>
@@ -16,17 +16,11 @@ import EntityCard from '../entities/specific/EntityCard';
 export default {
   name: "ModeratorLanding",
   components: { EntityCard, Section },
-  computed: {
-    user() {
-      return this.$store.state.auth.user;
-    },
-    group() {
-      return this.$store.getters["groups/byId"](this.user.ergo.group);
-    },
-    title() {
-      return `Modération: ${this.group.name}`
-    }
-  },
+  
+  data: () => ({
+    title: "Administration du blog" ,
+  }),
+
 };
 </script>
 
