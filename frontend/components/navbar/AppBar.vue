@@ -1,11 +1,6 @@
 <template>
-  <v-app-bar
-    class="navbar"
-    :class="sticky ? 'sticky' : 'normal'"
-    :elevation="sticky ? '3' : '0'"
-    short
-    v-scroll="onScroll"
-  >
+<!--    :elevation="sticky ? '3' : '0'"-->
+  <v-app-bar class="navbar sticky" short>
     <v-layout align-center justify-space-between>
       <v-flex class="nav-logo" xs2 pt-2 grow>
         <transition name="fade">
@@ -68,12 +63,12 @@ export default {
   },
   data: () => ({
     elevate: true,
-    sticky: false,
+    sticky: true,
     stickyHeight: 140,
   }),
   methods: {
     onScroll(e) {
-      this.sticky = window.pageYOffset >= this.stickyHeight;
+      // this.sticky = window.pageYOffset >= this.stickyHeight;
     }
   }
 };
@@ -129,10 +124,6 @@ export default {
   @media screen and (max-width: $medium) {
     display: flex;
   }
-}
-
-.normal {
-  top: 140px;
 }
 
 .sticky {

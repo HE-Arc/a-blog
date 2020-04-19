@@ -19,7 +19,7 @@
       >
         <v-layout justify-center class="main-layout">
           <v-flex xs12 sm11 md10 lg7 class="main-flex">
-            <Logo class="logo" width="280"/>
+<!--            <Logo class="logo" width="280"/>-->
             <div class="layout-content">
               <bread-crumb class="bread-crumb" />
               <nuxt />
@@ -85,9 +85,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 @import "../assets/scss/variables";
-@import "../assets/scss/vuetify-override";
+/*@import "../assets/scss/vuetify-override";*/
 
 p,
 ul,
@@ -121,7 +122,7 @@ ol {
 
 .main-flex {
   .layout-content {
-    margin-top: 150px;
+    margin-top: 50px;
   }
 }
 
