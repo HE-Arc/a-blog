@@ -30,8 +30,8 @@ export default {
    ** Global CSS
    */
   css: [
-    // 'easymde/dist/easymde.min.css',
-    "~/assets/scss/md-editor.scss"
+    "~/assets/scss/md-editor.scss",
+    { src: '~/assets/scss/vuetify-override.scss', lang: 'scss',ssr:false }
   ],
   /*
    ** Plugins to load before mounting the App
