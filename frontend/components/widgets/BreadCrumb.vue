@@ -36,15 +36,6 @@ export default {
           case "category":
             this.publicCategories(uri, items);
             break;
-          case "group":
-            this.publicGroups(uri, items);
-            break;
-          case "ergo":
-            this.publicErgos(uri, items);
-            break;
-          case "search":
-            this.publicSearch(items);
-            break;
           case "manage":
             this.manage(uri, items);
             break;
@@ -77,38 +68,6 @@ export default {
       });
     },
 
-    publicSearch(items) {
-      items.push({
-        text: "Recherche",
-        to: `/search`
-      });
-    },
-
-    publicGroups(uri, items) {
-      this.publicSearch(items);
-      let group = this.groups.find(i => i.id === parseInt(uri[1]));
-      items.push({
-        text: group.name,
-        to: `/group/${group.id}`
-      });
-    },
-
-    publicErgos(uri, items) {
-      this.publicSearch(items);
-      let ergo = this.ergos.find(i => i.id === parseInt(uri[1]));
-      let group = this.groups.find(i => i.id === ergo.group);
-      if (group) {
-        items.push({
-          text: group.name,
-          to: `/group/${group.id}`
-        });
-      }
-      items.push({
-        text: ergo.name,
-        to: `/ergo/${ergo.id}`
-      });
-    },
-
     manage(uri, items) {
       items.push({
         text: "Administration",
@@ -133,27 +92,6 @@ export default {
             items.push({
               text: article.title,
               to: `/manage/article/${article.id}`
-            });
-            break;
-
-          case "newsletters":
-            items.push({
-              text: "Newsletters",
-              to: `/manage/newsletters`
-            });
-            break;
-
-          case "externals":
-            items.push({
-              text: "Externes",
-              to: `/manage/externals`
-            });
-            break;
-
-          case "groups":
-            items.push({
-              text: "Associations",
-              to: `/manage/groups`
             });
             break;
         }
