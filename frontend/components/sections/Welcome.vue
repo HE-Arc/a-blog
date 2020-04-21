@@ -1,26 +1,29 @@
 <template>
-  <Section title="">
-    <h1 class="display-1">
-      Bienvenue sur mon blog.
+  <Section>
+    <h1 class="display-1 font-weight-light">
+      Bienvenue sur "A Blog".
     </h1>
     <div class="mb-4"></div>
-    <p class="font-weight-light mt-3">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias aliquam
-      cumque cupiditate deleniti dolorem ducimus eaque esse facilis, illum
-      maxime, molestias mollitia neque officia quisquam reiciendis tempore ullam
-      veritatis?
+    <p class="mt-3 mb-5 main-text">
+      Ici, nous avons à faire à un proof concept
+      d'un blog auto suffisant et agréable à regarder. Une fois connecté en
+      tant qu'administrateur, il est simple et intuitif d'ordonner les catégories
+      existantes ou d'en créer de nouvelles. La rédaction d'articles et se fait
+      en ligne avec un éditeur dont la preview affiche exactement le résultat tel
+      qu'il sera publié.
     </p>
   </Section>
 </template>
 
 <script>
 import Section from "../sections/Section";
+import Helpers from '../../assets/js/Helpers';
 
 export default {
   name: "Welcome",
   components: { Section },
   mounted() {
-    this.$Helpers().textElementsColor(this.$vuetify.theme);
+    Helpers.textElementsColor(this.$vuetify.theme);
   }
 };
 </script>
@@ -34,8 +37,9 @@ h1 {
   border: none !important;
 }
 
-.snase {
-  color: $secondary;
-  font-weight: bold;
+.main-text {
+  font-size: larger;
+  //color: $secondary;
+  /*font-weight: bold;*/
 }
 </style>

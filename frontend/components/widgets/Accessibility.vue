@@ -47,6 +47,8 @@
 </template>
 
 <script>
+  import Helpers from '../../assets/js/Helpers';
+  
 export default {
   name: "Zoom",
   data: () => ({
@@ -76,7 +78,7 @@ export default {
       } catch (e) {
         null;
       }
-      this.$Helpers().textElementsColor(this.$vuetify.theme);
+      Helpers.textElementsColor(this.$vuetify.theme);
     },
     toggle() {
       this.init();

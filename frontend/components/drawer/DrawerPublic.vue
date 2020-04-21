@@ -2,7 +2,7 @@
   <drawer-base
     link-text="Administration"
     link-icon="mdi-key-variant"
-    link-to="/manage"
+    link-to="/manage/categories"
     content-title="ARTICLES"
     state-getter="SET_PUBLIC_DRAWER"
     :state="$store.state.application.publicDrawer"

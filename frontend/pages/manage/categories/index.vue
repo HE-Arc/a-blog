@@ -1,17 +1,17 @@
 <template>
   <Section title="Categories">
-    <category-view/>
+    <admin-category-list/>
   </Section>
 </template>
 
 <script>
-import CategoryView from '../../../components/categories/CategoryView';
+import AdminCategoryList from '../../../components/categories/AdminCategoryList';
 import Section from '../../../components/sections/Section';
 
 export default {
   layout: "dashboard",
   name: "index",
-  components: { Section, CategoryView },
+  components: { Section, AdminCategoryList },
 };
 </script>
 

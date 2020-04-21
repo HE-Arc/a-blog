@@ -33,30 +33,25 @@ export default {
           case "article":
             this.publicArticles(uri, items);
             break;
-
           case "category":
             this.publicCategories(uri, items);
             break;
-
           case "group":
             this.publicGroups(uri, items);
             break;
-
           case "ergo":
             this.publicErgos(uri, items);
             break;
-
           case "search":
             this.publicSearch(items);
             break;
-
           case "manage":
             this.manage(uri, items);
             break;
         }
       }
       items[items.length - 1].disabled = true;
-      items.forEach(item => item['tag'] = 'a');
+      items.forEach(item => (item["tag"] = "a"));
       return items;
     }
   },
@@ -117,7 +112,7 @@ export default {
     manage(uri, items) {
       items.push({
         text: "Administration",
-        href: `/manage`
+        href: `/manage/categories`
       });
       uri = uri.splice(1);
       if (uri.length) {

@@ -9,18 +9,24 @@
               class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal display-3 white--text"
               style="height: 100%;"
             >
-              En savoir plus...
+              Lire l'article...
             </div>
           </v-expand-transition>
         </v-img>
+
         <v-card-title class="ma-0 pa-2 card-title">
           <v-list-item three-line class="title-container">
+            <v-list-item-avatar>
+              <v-img :src="article.image"></v-img>
+            </v-list-item-avatar>
+
             <v-list-item-content>
+              <article-author-and-date :article="article" small/>
+              
               <v-list-item-title class="headline font-weight-light">
-                <span :style="'color: ' + $colors().primary">{{
-                  article.title
-                }}</span>
+                <span :style="`color: ${$colors().primary}`">{{article.title}}</span>
               </v-list-item-title>
+
               <v-list-item-subtitle class="body-1 font-weight-light">
                 {{ article.description }}
               </v-list-item-subtitle>
@@ -33,8 +39,11 @@
 </template>
 
 <script>
+import ArticleAuthorAndDate from '../widgets/ArticleAuthorAndDate';
+
 export default {
   name: "ArticleCard",
+  components: { ArticleAuthorAndDate },
   props: {
     article: { type: Object }
   },
@@ -50,18 +59,13 @@ export default {
   methods: {
     link(id) {
       this.$router.push({ path: `/article/${id}` });
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
-
-/*.card {*/
-/*  margin-right: 10px;*/
-/*  margin-bottom: 10px;*/
-/*}*/
 
 .title-container {
   overflow: hidden;

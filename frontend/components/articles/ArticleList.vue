@@ -26,8 +26,8 @@
         </p>
         <v-layout>
           <v-spacer></v-spacer>
-          <data-edit-menu
-            :edit="() => $router.push('/manage/article/' + article.id)"
+          <edit-tools
+            :edit="() => $router.push(`/manage/article/${article.id}`)"
             :update="() => (modal = true)"
             :del="deleteArticle"
             :element="article"
@@ -45,12 +45,12 @@
 </template>
 
 <script>
-import VisibilityIcon from "../Icons/VisibilityIcon";
-import DataEditMenu from "../entities/widgets/DataEditMenu";
+import VisibilityIcon from "../widgets/VisibilityIcon";
+import EditTools from "../widgets/EditTools";
 import ArticleModal from "../modal/ArticleModal";
 
 export default {
-  components: { ArticleModal, DataEditMenu, VisibilityIcon },
+  components: { ArticleModal, EditTools, VisibilityIcon },
   props: {
     category: { type: Object }
   },

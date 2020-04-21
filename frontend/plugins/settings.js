@@ -1,7 +1,7 @@
 import Vue from "vue";
 
 const settings = {
-  siteTitle: "SNASE"
+  siteTitle: "A Blog"
 };
 
 const colors = {

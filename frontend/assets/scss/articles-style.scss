@@ -10,31 +10,8 @@ $color-text-notes: #212121;
 $color-link: #7089be;
 $color-code: #007460;
 
-$color-info: #4a5782;
-$color-info-light: #dff0ff;
-$color-info-dark: #374269;
-
-$color-warning: #c49930;
-$color-warning-light: #ffeace;
-$color-warning-dark: #9c6e04;
-
-$color-danger: #e24e4e;
-$color-danger-light: #ffe8e6;
-$color-danger-dark: #db2828;
-
-$color-gray: #4b4b4c;
-$color-gray-light: #f8f8f9;
-$color-gray-dark: #202021;
-
-//$color-accent: #00CC8F;
-$color-accent: #fd971f;
-
-//$font-primary: "Lato", sans-serif;
 $font-primary: "Roboto", sans-serif;
-//$font-primary: "Open Sans", sans-serif;
-//$font-secondary: "Montserrat", sans-serif;
 $font-secondary: "Roboto", sans-serif;
-$text-base-size: 1em;
 $text-scale-ratio: 1.2;
 
 $heading-line-height: 1.2;
@@ -153,11 +130,21 @@ $space-xxl: 5.25 * $space-unit;
   }
 
   &::v-deep p {
+    color: $paragraphs;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+
     list-style-position: outside;
     margin-bottom: $space-xxl;
   }
 
   &::v-deep ul {
+    color: $paragraphs;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+
     list-style-type: disc;
     margin-left: 24px;
     list-style-position: outside;
@@ -165,6 +152,11 @@ $space-xxl: 5.25 * $space-unit;
   }
 
   &::v-deep ol {
+    color: $paragraphs;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+
     list-style-type: decimal;
     margin-left: 24px;
     list-style-position: outside;

@@ -1,5 +1,16 @@
 <template>
+  
+
+  
+  
   <Section :title="article.title">
+    
+    <v-list-item class="title-container pl-1">
+      <v-list-item-content>
+        <article-author-and-date :article="article"/>
+      </v-list-item-content>
+    </v-list-item>
+    
     <v-img
       class="image"
       :class="{ 'place-holder': article.image === 'Url vignette' }"
@@ -24,9 +35,12 @@
 
 <script>
 import Section from "../../components/sections/Section";
+import Helpers from '../../assets/js/Helpers';
+import ArticleAuthorAndDate from '../widgets/ArticleAuthorAndDate';
+
 export default {
   name: "Article",
-  components: { Section },
+  components: { ArticleAuthorAndDate, Section },
   props: {
     article: { type: Object },
     body: { type: String }
@@ -45,7 +59,7 @@ export default {
   },
   mounted() {
     this.blockquoteBg();
-    this.$Helpers().textElementsColor(this.$vuetify.theme);
+    Helpers.textElementsColor(this.$vuetify.theme);
   }
 };
 </script>

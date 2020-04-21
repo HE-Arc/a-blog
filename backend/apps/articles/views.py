@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from apps.articles.serializers import (
     ArticleSerializer,
@@ -14,14 +13,16 @@ from apps.articles.models import (
 
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
-    serializer_class = ArticleSerializer # instead of Article
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    serializer_class = ArticleSerializer
+
+    def create(self, request, *args, **kwargs):
+        request.data['author'] = request.user.id
+        return super().create(request, args, kwargs)
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    # permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 

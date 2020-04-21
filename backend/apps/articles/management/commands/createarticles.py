@@ -14,7 +14,9 @@ from apps.users.models import User
 from utils.helpers import fetch_random_image
 from utils.helpers import generate_random_img_url
 
+
 LOREM = forgery_py.lorem_ipsum
+
 
 class Command(BaseCommand):
     help = 'Creates articles and categories with random content.'
@@ -136,8 +138,11 @@ class Command(BaseCommand):
 
         splitted_text = get(api).text.split("\n")
         article = {
-            'title': splitted_text[0].replace("#", "").lstrip(),
-            'description': forgery_py.lorem_ipsum.sentences(),
+            'title': " ".join(splitted_text[0]
+                              .replace("#", "")
+                              .lstrip()
+                              .split(" ")[:randint(2, 3)]),
+            'description': forgery_py.lorem_ipsum.sentence(),
             'body': []
         }
         for line in splitted_text[4:]:

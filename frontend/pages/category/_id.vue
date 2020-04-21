@@ -19,6 +19,8 @@
 <script>
 import Section from "../../components/sections/Section";
 import ArticleCard from "../../components/articles/ArticleCard";
+import Helpers from '../../assets/js/Helpers';
+
 
 export default {
   name: "_id",
@@ -42,7 +44,7 @@ export default {
     }
   },
   mounted() {
-    this.$Helpers().textElementsColor(this.$vuetify.theme);
+    Helpers.textElementsColor(this.$vuetify.theme);
   }
 };
 </script>

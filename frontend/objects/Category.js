@@ -1,5 +1,5 @@
 import endpoints from "../configs/endpoints";
-import CategoryForm from './forms/CategoryForm';
+import CategoryForm from '../forms/CategoryForm';
 
 export default class Category {
   constructor(data = {}) {

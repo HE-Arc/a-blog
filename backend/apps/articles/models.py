@@ -16,7 +16,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Article(models.Model):
     title = models.CharField(max_length=300, blank=True, null=True)
     description = models.TextField(max_length=1024, blank=True, default="")

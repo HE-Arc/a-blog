@@ -5,16 +5,16 @@
       offset-y
       open-on-hover
       transition="scroll-y-transition"
-      v-for="category in categories"
+      v-for="(category, idx) in categories"
       :key="category.id"
     >
       <template v-slot:activator="{ on }">
         <v-btn
           nuxt
           text
-          small
           v-on="on"
           class="font-weight-regular"
+          :class="{'pl-1': idx == 0}"
           :to="`/category/${category.id}`"
           :color="$colors().primary"
         >

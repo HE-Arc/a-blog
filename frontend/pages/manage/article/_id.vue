@@ -1,19 +1,19 @@
 <template>
   <Section title="">
 
-    <MdEditor :article="article"></MdEditor>
+    <MDEditor :article="article"></MDEditor>
 
   </Section>
 </template>
 
 <script>
-  import Section from "../../../components/sections/Section";;
-  import MdEditor from "../../../components/MdEditor";
+  import Section from "../../../components/sections/Section";
+  import MDEditor from "../../../components/MDEditor";
 
   export default {
     layout: "dashboard",
     name: '_id',
-    components: { MdEditor, Section },
+    components: { MDEditor, Section },
     computed: {
       article() {
         const id = parseInt(this.$route.params.id);

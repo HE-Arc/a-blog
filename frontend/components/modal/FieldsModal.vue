@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import BaseForm from "../../objects/forms/abstract/BaseForm";
 import Modal from "./Modal";
 import Form from '../form/Form';
 
@@ -49,13 +48,6 @@ export default {
       this.$store.dispatch(this.dispatch, data);
       this.close();
     },
-    initForm() {
-      this.form = new BaseForm({
-        store: this.$store,
-        fields: this.fields,
-        entity: this.entity
-      });
-    }
   }
 };
 </script>

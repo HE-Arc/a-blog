@@ -2,7 +2,6 @@ from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from requests import get
 
-
 def generate_random_img_url(width=640, height=480):
     return f"{settings.DEV_IMAGES_API}/{width}/{height}"
 

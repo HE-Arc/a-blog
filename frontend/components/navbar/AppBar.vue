@@ -1,88 +1,82 @@
 <template>
-<!--    :elevation="sticky ? '3' : '0'"-->
-  <v-app-bar class="navbar sticky" short>
-    <v-layout align-center justify-space-between>
-      <v-flex class="nav-logo" xs2 pt-2 grow>
-        <transition name="fade">
-          <Logo width="110" v-show="sticky" small />
-        </transition>
+  <v-app-bar class="navbar sticky" short flat>
+
+    <v-tooltip right>
+      <template v-slot:activator="{ on }">
+        <nuxt-link class="logo display-1" to="/">
+          <span v-on="on">{{ $Settings().siteTitle }}</span>
+        </nuxt-link>
+      </template>
+      <span>Retour à l'accueil</span>
+    </v-tooltip>
+
+    <v-layout row justify-center>
+      <v-flex xs6 lg7>
+        <v-layout>
+          <v-flex class="categories">
+            <Categories />
+          </v-flex>
+
+          <v-flex class="search">
+            <search-nav />
+          </v-flex>
+        </v-layout>
       </v-flex>
-
-      <v-spacer />
-
-      <v-flex class="categories">
-        <Categories />
-      </v-flex>
-
-      <v-flex class="search" grow>
-        <search-nav />
-      </v-flex>
-
-      <v-spacer />
-
+    </v-layout>
+    
+    <div class="login">
       <v-flex class="user" shrink>
-        <nav-login-button />
-      </v-flex>
-
-      <v-flex v-if="$route.path.startsWith('/search')" class="icon mr-2" shrink>
-        <v-btn
-          @click="() => $store.commit('filters/SET_MODAL', true)"
-          :color="$colors().secondary"
-          text
-          fab
-        >
-          <v-icon>mdi-filter</v-icon>
-        </v-btn>
-      </v-flex>
-
-      <v-flex class="icon" shrink>
-        <v-btn to="/search" fab text>
-          <v-icon>mdi-account-search-outline</v-icon>
-        </v-btn>
+        <login-button />
       </v-flex>
 
       <v-flex class="nav-icon" shrink>
         <v-app-bar-nav-icon @click.stop="$emit('drawer')" />
       </v-flex>
-    </v-layout>
-
+    </div>
+    
+    
   </v-app-bar>
 </template>
 
 <script>
-import Logo from "../Logo";
 import Categories from "./Categories";
-import SearchNav from "../search/SearchNav";
-import NavLoginButton from "./NavLoginButton";
+import SearchNav from "../widgets/SearchNav";
+import LoginButton from "./LoginButton";
 
 export default {
   name: "AppBar",
-  components: { NavLoginButton, SearchNav, Logo, Categories },
+  components: { LoginButton, SearchNav, Categories },
   props: {
     drawer: { type: Boolean }
   },
   data: () => ({
     elevate: true,
     sticky: true,
-    stickyHeight: 140,
-  }),
-  methods: {
-    onScroll(e) {
-      // this.sticky = window.pageYOffset >= this.stickyHeight;
-    }
-  }
+    stickyHeight: 140
+  })
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
+
+.logo {
+  position: absolute;
+  left: 1em;
+  font-weight: 200;
+  text-decoration: none !important;
+  color: $secondary;
+  @media screen and (max-width: $mobile) {
+    left: 0.5em;
+  }
 }
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+
+.login {
+  position: absolute;
+  right: 1em;
+  @media screen and (max-width: $mobile) {
+    right: 0.5px;
+  }
 }
 
 .navbar {
@@ -122,7 +116,7 @@ export default {
 .nav-icon {
   display: none;
   @media screen and (max-width: $medium) {
-    display: flex;
+    display: block;
   }
 }
 

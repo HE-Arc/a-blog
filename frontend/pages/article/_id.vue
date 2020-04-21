@@ -1,19 +1,18 @@
 <template>
-  <Article :article="article" />
+  <ArticleDetail :article="article" />
 </template>
 
 <script>
-import Section from "../../components/sections/Section";
-import Article from "../../components/articles/ArticleDetail";
+import ArticleDetail from "../../components/articles/ArticleDetail";
 
 export default {
   head() {
     return {
-      title: `${this.$Settings().siteTitle}: ${this.article.title}`,
+      title: `${this.$Settings().siteTitle}: ${this.article.title}`
     };
   },
   name: "_id",
-  components: { Article, Section },
+  components: { ArticleDetail },
   computed: {
     article() {
       const id = parseInt(this.$route.params.id);

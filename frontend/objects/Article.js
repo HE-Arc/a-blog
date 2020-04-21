@@ -1,5 +1,5 @@
 import endpoints from "../configs/endpoints";
-import ArticleForm from './forms/ArticleForm';
+import ArticleForm from '../forms/ArticleForm';
 
 export default class Article {
   constructor(data = {}) {
@@ -8,6 +8,7 @@ export default class Article {
     this.description = data.description;
     this.body = data.body;
     this.image = data.image;
+    this.author = data.author;
     this.category = data.category;
     this.highlighted = data.highlighted;
     this.published = data.published;

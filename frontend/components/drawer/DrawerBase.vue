@@ -6,7 +6,7 @@
     :right="right"
     :temporary="temporary"
   >
-    <User/>
+    <drawer-user-section/>
 
     <v-divider></v-divider>
 
@@ -45,11 +45,11 @@
 </template>
 
 <script>
-import User from "../../components/drawer/User";
+import DrawerUserSection from "./DrawerUserSection";
 
 export default {
   name: "DrawerBase",
-  components: { User },
+  components: { DrawerUserSection },
   props: {
     linkText: { type: String },
     linkIcon: { type: String },

@@ -32,7 +32,7 @@
 <script>
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
-import BaseForm from "../../objects/forms/abstract/BaseForm";
+import BaseForm from "../../forms/abstract/BaseForm";
 import { mapActions } from "vuex";
 
 export default {
@@ -80,11 +80,6 @@ export default {
       this.loginForm = new BaseForm({
         store: this.$store,
         fields: ["email", "password"]
-      });
-      
-      this.lostForm = new BaseForm({
-        store: this.$store,
-        fields: ["email"]
       });
     },
     close() {

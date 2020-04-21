@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).parents[1]
 
 # Load operating system environment variables and then prepare to use them
-load_dotenv(dotenv_path=Path(__file__).parents[2] / '.env')
+load_dotenv(dotenv_path=BASE_DIR / '.env')
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -148,9 +148,6 @@ STATIC_ROOT = BASE_DIR / 'static'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
 
-# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-# STATICFILES_DIRS = [BASE_DIR / 'static']
-
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -179,7 +176,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': STATICFILES_DIRS,
         'OPTIONS': {
             'debug': DEBUG,
             'loaders': [
@@ -285,16 +281,8 @@ SIMPLE_JWT = {
 # ------------------------------------------------------------------------------
 # See https://pypi.org/project/django-cors-headers/
 
-CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 CORS_ORIGIN_WHITELIST = DOMAIN,
-
-# Permissions
-# ------------------------------------------------------------------------------
-
-# FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
-# FILE_UPLOAD_PERMISSIONS = 0o644
-
 
 
 # DEV

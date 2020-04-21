@@ -32,8 +32,8 @@ class Helpers {
   }
 
   static textElementsColor(theme) {
+      const elements = ["p", "li", "blockquote"];
       let color = theme.dark ? "#fff" : "#757575";
-      let elements = ["p", "li", "blockquote"];
       elements.forEach(el => {
         try {
           Array.from(document.getElementsByTagName(el)).forEach(el => {
@@ -43,6 +43,14 @@ class Helpers {
           null;
         }
       });
+  }
+
+  static dateFr(rawDate) {
+    let d = new Date(rawDate);
+    const ye = new Intl.DateTimeFormat("fr", { year: "numeric" }).format(d);
+    const mo = new Intl.DateTimeFormat("fr", { month: "long" }).format(d);
+    const da = new Intl.DateTimeFormat("fr", { day: "2-digit" }).format(d);
+    return `${da} ${mo} ${ye}`;
   }
 
 }
