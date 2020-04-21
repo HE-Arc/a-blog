@@ -17,8 +17,8 @@ class UserViewSet(MixedPermissionModelViewSet):
     serializer_class = UserSerializer
 
     permission_classes_by_action = {
-        'retrieve': [IsAuthenticated, IsAdminUser],
-        'list': [IsAuthenticated, IsAdminUser],
+        'retrieve': [AllowAny],
+        'list': [AllowAny],
         'create': [IsAuthenticated, IsAdminUser],
         'update': [IsAuthenticated],
         'partial_update': [IsAuthenticated],
