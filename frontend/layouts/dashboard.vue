@@ -11,6 +11,7 @@
           extension-height=""
           color="white"
           extended
+          flat
           app
         >
           <v-layout align-content-center>
