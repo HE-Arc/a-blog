@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="navbar sticky" :color="color"  short flat>
+  <v-app-bar class="navbar sticky" :color="color" short flat>
 
     <v-tooltip right>
       <template v-slot:activator="{ on }">

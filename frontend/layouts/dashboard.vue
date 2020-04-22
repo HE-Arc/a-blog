@@ -9,6 +9,7 @@
           class="navbar"
           elevate-on-scroll
           extension-height=""
+          color="white"
           extended
           app
         >
