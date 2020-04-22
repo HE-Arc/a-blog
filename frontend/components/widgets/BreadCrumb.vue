@@ -1,5 +1,5 @@
 <template>
-  <v-breadcrumbs class="pl-0 pa-0" :items="breadCrumb">
+  <v-breadcrumbs class="pl-0" :items="breadCrumb">
     <template v-slot:divider>
       <v-icon>chevron_right</v-icon>
     </template>

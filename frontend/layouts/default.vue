@@ -7,7 +7,7 @@
       <v-container grid-list-md fluid>
         <v-layout class="wrapper" row wrap justify-center>
           <v-flex class="mb-5" xs12 sm11 lg7>
-            <BreadCrumb/>
+            <BreadCrumb class="mt-2"/>
           </v-flex>
           <v-flex xs12 sm11 lg7>
             <nuxt />

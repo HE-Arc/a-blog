@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="navbar sticky" short flat>
+  <v-app-bar class="navbar sticky" :color="color"  short flat>
 
     <v-tooltip right>
       <template v-slot:activator="{ on }">
@@ -53,7 +53,12 @@ export default {
     elevate: true,
     sticky: true,
     stickyHeight: 140
-  })
+  }),
+  computed: {
+    color() {
+      return this.$vuetify.theme.dark ? "#424242" : "#fff";
+    },
+  },
 };
 </script>
 
