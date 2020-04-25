@@ -3,11 +3,13 @@
 * Avril 2020
 * Latino Nathan
 * Rosca Sol
-* Live: [161.35.29.177](http://161.35.29.177/) and [161.35.29.177/api](http://161.35.29.177)
+* Live: [roscas.ch](roscas.ch) and [roscas.ch/api](http://roscas.ch/api)
 
 ## Deploy
+
 * **digital ocean**
-    * `ssh ablog@161.35.29.177`
+    * 161.35.29.177
+    * `ssh ablog@roscas.ch`
     * couleurcouleur1212
 * **postgres**
     * db: ablog
@@ -15,11 +17,10 @@
     * pw: couleurcouleur1212
 
 
-
 ### Backend
 * Inside ablog/backend
 * `mv .env-example .env` & set values
-* setup env and workon it
+* setup env and `workon` *optional*
 * `pip install -r requirements.txt`
 
 ### Frontend
@@ -35,7 +36,7 @@
 # /etc/nginx/sites-available/ablog
 
 server {
-    server_name 161.35.29.177;
+    server_name http://roscas.ch;
 
     access_log /home/ablog/logs/backend/nginx-access.log;
     access_log /home/ablog/logs/backend/nginx-error.log;
