@@ -137,11 +137,11 @@ STATICFILES_FINDERS = [
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 # MEDIA_URL = f"{MEDIA_ROOT}/"
-MEDIA_URL = f"/media/"
+MEDIA_URL = '/media/'
 
 # URL Configuration
 # ------------------------------------------------------------------------------
