@@ -12,7 +12,7 @@ AdminBlog
 
 * **digital ocean**
     * 161.35.29.177
-    * `ssh ablog@roscas.ch`
+    * `ssh ablog@roscas.ch`, `ssh guest@roscas.ch`
     * couleurcouleur1212
 * **postgres**
     * db: ablog
