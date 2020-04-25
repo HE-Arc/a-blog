@@ -6,6 +6,8 @@
 * Live: [https://roscas.ch](https://roscas.ch) and [https://roscas.ch/api](https://roscas.ch/api)
 
 
+AdminBlog
+
 ## Server data
 
 * **digital ocean**
@@ -148,7 +150,6 @@ server {
 
 * Inside `/etc/nginx/sites-available/ablog` replace `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;` with `proxy_set_header X-Forwarded-Proto https;`
 * Inside Django's settings file add:
-*
 ```py
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
