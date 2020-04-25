@@ -16,7 +16,7 @@ export const mutations = {
     state.data.sort((a, b) => (a.weight > b.weight ? 1 : -1));
   },
   CREATE(state, data) {
-    state.data.push(create(data));
+    state.data.push(new Category(data));
     this.$notifications("success", `${Category.objectName()} créé`);
   },
   UPDATE(state, data) {
@@ -47,7 +47,10 @@ export const actions = {
     this.$axios
       .post(Category.endpoint(), Category.createForm(data))
       .then(res => commit("CREATE", res.data))
-      .catch(err => this.$notifications("error"));
+      .catch(err => {
+        console.log("error callback")
+        this.$notifications("error")
+      });
   },
   update({ commit }, data) {
     this.$axios

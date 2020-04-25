@@ -18,7 +18,7 @@ export const mutations = {
     state.data.sort((a, b) => (a.weight > b.weight ? 1 : -1));
   },
   CREATE(state, data) {
-    state.data.push(create(data));
+    state.data.push(new Article(data));
     this.$notifications("success", `${Article.objectName()} créé`);
   },
   UPDATE(state, data) {

@@ -271,3 +271,8 @@ CORS_ORIGIN_WHITELIST = DOMAIN,
 
 LOREM_API = 'https://jaspervdj.be/lorem-markdownum/markdown.txt'
 DEV_IMAGES_API = "https://picsum.photos"
+
+# SSL
+# ------------------------------------------------------------------------------
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = {} if DEBUG else ('HTTP_X_FORWARDED_PROTO', 'https')

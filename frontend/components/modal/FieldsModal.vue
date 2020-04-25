@@ -14,6 +14,7 @@
 <script>
 import Modal from "./Modal";
 import Form from '../form/Form';
+import Category from '../../objects/Category';
 
 export default {
   name: "FieldsModal",
@@ -21,9 +22,9 @@ export default {
   props: {
     entity: { type: Object },
     fields: { type: Array },
-    modal: { type: Boolean },
     dispatch: { type: String },
     title: { type: String },
+    modal: { type: Boolean },
     headline: { type: String }
   },
   data: () => ({
@@ -48,6 +49,23 @@ export default {
       this.$store.dispatch(this.dispatch, data);
       this.close();
     },
+    initForm() {
+      this.form = Category.getForm({
+        store: this.$store,
+        entity: this.entity,
+        // exclude:  this.article ? [] : ['category'],
+      });
+
+      let cat = this.article
+        ? this.$store.getters["articles/category"](this.article.category)
+        : this.parent;
+
+      if (this.article) {
+        this.form.getField("category").value = cat.name;
+        this.form.getField("category").cache = cat.name;
+      }
+
+    }
   }
 };
 </script>

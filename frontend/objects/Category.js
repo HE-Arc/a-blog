@@ -12,7 +12,7 @@ export default class Category {
   }
 
   static getForm(store, entity = false) {
-    return new CategoryForm(store, entity);
+    return new CategoryForm(store);
   }
 
   static endpoint(id=false) {

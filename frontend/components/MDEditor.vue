@@ -1,10 +1,11 @@
 <template>
-  <v-container ma-0 pa-0 grid-list-xl>
+  <v-container>
     <v-layout>
       <v-flex xs-7>
-        <Article class="article" :article="article" :body="body"/>
+        <Article class="article" :article="article" :body="body" />
       </v-flex>
-      <v-flex xs5 shrink mr-2>
+
+      <v-flex>
         <v-card class="editor" elevation="0">
           <v-card-text ma-0 pa-0>
             <no-ssr>
@@ -15,37 +16,27 @@
               />
             </no-ssr>
 
-            <v-layout wrap>
-              <v-flex>
-                <v-btn outlined color="info" @click="modal = true">
-                  <v-icon left>mdi-cogs</v-icon>
-                  Propriétés
-                </v-btn>
-              </v-flex>
-
-              <v-flex>
-                <v-btn
-                  :disabled="disabledSaveButton"
-                  :color="disabledSaveButton ? 'gray' : 'error'"
-                  outlined
-                  @click="reset()"
-                >
-                  <v-icon left>mdi-cancel</v-icon>
-                  Annuler
-                </v-btn>
-              </v-flex>
-
-              <v-flex>
-                <v-btn
-                  :disabled="disabledSaveButton"
-                  :color="disabledSaveButton ? 'gray' : 'success'"
-                  outlined
-                  @click="update()"
-                >
-                  <v-icon left>mdi-content-save</v-icon>
-                  Enregistrer
-                </v-btn>
-              </v-flex>
+            <v-layout>
+              <v-btn outlined class="mr-1" color="info" @click="modal = true">
+                <v-icon>mdi-cogs</v-icon>
+              </v-btn>
+              <v-btn
+                class="mr-1"
+                :disabled="disabledSaveButton"
+                :color="disabledSaveButton ? 'gray' : 'success'"
+                @click="update()"
+                outlined
+              >
+                <v-icon>mdi-content-save</v-icon>
+              </v-btn>
+              <v-btn
+                :disabled="disabledSaveButton"
+                :color="disabledSaveButton ? 'gray' : 'error'"
+                @click="reset()"
+                outlined
+              >
+                <v-icon>mdi-cancel</v-icon>
+              </v-btn>
             </v-layout>
           </v-card-text>
         </v-card>
