@@ -70,7 +70,7 @@ export default {
       }
     },
     isAdmin() {
-      return this.$route.path.startsWith("/manage");
+      return this.$route.path.startsWith("/administration");
     }
   },
   methods: {

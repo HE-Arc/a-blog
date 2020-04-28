@@ -27,7 +27,7 @@
         <v-layout>
           <v-spacer></v-spacer>
           <edit-tools
-            :edit="() => $router.push(`/manage/article/${article.id}`)"
+            :edit="() => $router.push(`/administration/article/${article.id}`)"
             :update="() => (modal = true)"
             :del="deleteArticle"
             :element="article"

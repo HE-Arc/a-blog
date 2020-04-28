@@ -3,26 +3,7 @@
     <template v-slot:body>
       <v-window v-model="tab" class="mt-3">
         <v-window-item :value="'login'">
-          <Form :form="loginForm" @close="close" @confirm="loginAction">
-            <template v-slot:bottom>
-              <v-flex xs12 class="my-4 forgot-pw" style="text-align: center">
-                <a @click="tab = 'lost'">Mot de passe oublié ?</a>
-              </v-flex>
-            </template>
-          </Form>
-        </v-window-item>
-
-        <v-window-item :value="'lost'">
-          <v-flex xs12 mb-3 class="body-1" style="text-align: center">
-            Veuillez entrer votre adresse email. Nous vous enverrons un courriel
-            pour réinitialiser votre mot de passe.
-          </v-flex>
-          <Form
-            ref="lost"
-            :form="lostForm"
-            @close="close"
-            @confirm="lostAction"
-          />
+          <Form :form="loginForm" @close="close" @confirm="loginAction"/>
         </v-window-item>
       </v-window>
     </template>

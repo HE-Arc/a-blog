@@ -1,5 +1,4 @@
 import endpoints from "../configs/endpoints";
-import UserForm from '../forms/UserForm';
 
 export default class User {
   constructor(data = {}) {
@@ -13,26 +12,9 @@ export default class User {
 
   }
 
-  static getForm(store, entity = false) {
-    return new UserForm(store, entity);
-  }
-
   static endpoint(id= false) {
     let endpoint = endpoints.users;
     return id ? `${endpoint}/${id}` : endpoint;
   }
-
-  static objectName() {
-    return "User";
-  }
-
-  static deleteDialogOptions(data) {
-    return {
-      type: "warning",
-      detail: `Effacer "${data.name}" ?`,
-      dispatch: { action: `ergos/delete`, arg: data.id }
-    };
-  }
-
 }
 

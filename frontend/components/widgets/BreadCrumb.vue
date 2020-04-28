@@ -17,13 +17,6 @@ export default {
     articles() {
       return this.$store.state.articles.data;
     },
-    groups() {
-      return this.$store.state.groups.data;
-    },
-    ergos() {
-      return this.$store.state.ergos.data;
-    },
-
     breadCrumb() {
       let items = [{ text: "Accueil", to: "/", link: true, disabled: false }];
       let uri = this.$route.path.split("/").splice(1);
@@ -36,8 +29,8 @@ export default {
           case "category":
             this.publicCategories(uri, items);
             break;
-          case "manage":
-            this.manage(uri, items);
+          case "administration":
+            this.administration(uri, items);
             break;
         }
       }
@@ -68,10 +61,10 @@ export default {
       });
     },
 
-    manage(uri, items) {
+    administration(uri, items) {
       items.push({
         text: "Administration",
-        href: `/manage/categories`
+        href: `/administration/categories`
       });
       uri = uri.splice(1);
       if (uri.length) {
@@ -79,7 +72,7 @@ export default {
           case "categories":
             items.push({
               text: "Categories",
-              to: `/manage/categories`
+              to: `/administration/categories`
             });
             break;
 
@@ -87,11 +80,11 @@ export default {
             let article = this.articles.find(i => i.id === parseInt(uri[1]));
             items.push({
               text: "Categories",
-              to: `/manage/categories`
+              to: `/administration/categories`
             });
             items.push({
               text: article.title,
-              to: `/manage/article/${article.id}`
+              to: `/administration/article/${article.id}`
             });
             break;
         }

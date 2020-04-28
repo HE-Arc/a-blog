@@ -38,19 +38,10 @@ export default {
   computed: {
     icon() {
       switch (this.type) {
-        case "add":
-          return "mdi-plus";
-        case "update":
-          return "mdi-cogs";
-        case "edit":
-          return "mdi-pencil";
-        case "ergo":
-          return "mdi-account";
-
-        case "login":
-          return "mdi-account-circle-outline";
-        case "lost":
-          return "mdi-lock-reset";
+        case "add": return "mdi-plus";
+        case "update": return "mdi-cogs";
+        case "edit": return "mdi-pencil";
+        case "login": return "mdi-account-circle-outline";
       }
     }
   }

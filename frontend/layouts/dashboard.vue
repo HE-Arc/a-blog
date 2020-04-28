@@ -20,7 +20,7 @@
             </v-flex>
 
             <v-flex align-self-center shrink>
-              <nuxt-link class="navbar-title title mx-5" to="/manage">
+              <nuxt-link class="navbar-title title mx-5" to="/administration">
                 A-Blog: Administration
               </nuxt-link>
             </v-flex>
