@@ -14,6 +14,10 @@ export default {
         href: "https://fonts.googleapis.com/css?family=Material+Icons"
       },
       {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400&display=swap"
+      },
+      {
         rel: 'icon',
         type: 'image/x-icon',
         href: 'favicon.ico',

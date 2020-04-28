@@ -18,7 +18,6 @@
 
 <style lang="scss" scoped>
   @import "../assets/scss/variables";
-  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400&display=swap');
   
 
   .logo {
