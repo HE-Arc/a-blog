@@ -1,5 +1,5 @@
 /**
- * This store is only used in the logging process. To retrieve
+ * This store is only used in the loggin-in process. To retrieve
  * the currently connected user use $auth.user
  */
 
