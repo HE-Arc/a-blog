@@ -1,5 +1,5 @@
 <template>
-  <Section title="Hilights">
+  <Section title="Highlights">
     <v-container grid-list-xl class="px-0 pt-0">
       <v-layout row wrap v-if="highlighted.length">
         <v-flex>

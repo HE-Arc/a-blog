@@ -25,7 +25,6 @@ class MixedPermissionModelViewSet(viewsets.ModelViewSet):
 
 
 class IsAdminOrIsErgoUser(permissions.BasePermission):
-    # TODO: change message to French
     message = 'You have no permissions to perform that action.'
 
     def has_object_permission(self, request, view, ergo):
@@ -38,7 +37,6 @@ class IsAdminOrIsErgoUser(permissions.BasePermission):
 
 
 class IsAdminOrIsGroupModeratorUser(permissions.BasePermission):
-    # TODO: change message to French
     message = 'You have no permissions to perform that action.'
 
     def has_object_permission(self, request, view, group):
@@ -51,7 +49,6 @@ class IsAdminOrIsGroupModeratorUser(permissions.BasePermission):
 
 
 class IsAdminOrIsGroupModeratorForErgoUser(permissions.BasePermission):
-    # TODO: change message to French
     message = 'You have no permissions to perform that action.'
 
     def has_object_permission(self, request, view, ergo):
@@ -65,7 +62,6 @@ class IsAdminOrIsGroupModeratorForErgoUser(permissions.BasePermission):
 
 class IsAdminOrIsGroupModeratorForErgoUserOrIsErgoUser(
         permissions.BasePermission):
-    # TODO: change message to French
     message = 'You have no permissions to perform that action.'
 
     def has_object_permission(self, request, view, ergo):
@@ -80,7 +76,6 @@ class IsAdminOrIsGroupModeratorForErgoUserOrIsErgoUser(
 
 
 class IsAdminOrIsRequestAssigneeUser(permissions.BasePermission):
-    # TODO: change message to French
     message = 'You have no permissions to perform that action.'
 
     def has_object_permission(self, request, view, ergo):

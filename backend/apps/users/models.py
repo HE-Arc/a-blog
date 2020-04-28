@@ -55,12 +55,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     @property
     def full_name(self):
-        return '{} {}'.format(self.first_name, self.last_name)
+        return f'{self.first_name} {self.last_name}'
     full_name.fget.short_description = 'Full name'
 
     @property
     def short_name(self):
-        return '{}, {}.'.format(self.last_name, self.first_name[0])
+        return f'{self.last_name}, {self.first_name[0]}.'
     short_name.fget.short_description = 'Short name'
 
     def get_full_name(self):
@@ -74,7 +74,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_role(self):
         role = 'guest'
-        for k in ['is_staff', 'is_moderator', 'is_ergo']:
+        for k in ['is_staff', 'is_moderator']:
             if getattr(self, k, False):
                 role = k.replace('is_', '')
                 break
