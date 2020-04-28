@@ -5,8 +5,12 @@
 * Rosca Sol
 * Live: [https://roscas.ch](https://roscas.ch) and [https://roscas.ch/api](https://roscas.ch/api)
 
+## Data modelisation
 
-AdminBlog
+* [dbdiagram.io](https://dbdiagram.io/d/5ea861c039d18f5553fe5eb4)
+
+![](https://i.imgur.com/464QPI8.png)
+
 
 ## Server data
 
