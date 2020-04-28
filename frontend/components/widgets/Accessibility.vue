@@ -8,8 +8,8 @@
       fab
       elevation="1"
     >
-      <v-icon v-if="!activated">mdi-human-handsdown</v-icon>
-      <v-icon v-else>mdi-close</v-icon>
+      <v-icon ma-0 pa-5 v-if="!activated">mdi-human-handsdown</v-icon>
+      <v-icon ma-0 pa-5 v-else>mdi-close</v-icon>
     </v-btn>
 
     <transition name="fade">
@@ -22,24 +22,24 @@
           medium
           elevation="3"
         >
-          <v-icon>mdi-theme-light-dark</v-icon>
+          <v-icon ma-0 pa-5>mdi-theme-light-dark</v-icon>
         </v-btn>
 
         <v-btn
           v-if="!disabled"
           v-for="(i, idx) in buttons"
           :key="idx"
-          @click="i.f"
-          color="blue darken-2"
           :class="i.class"
           :style="`color: ${i.color}`"
+          @click="i.f"
+          color="blue darken-2"
           class="buttons"
           elevation="3"
           medium
           dark
           fab
         >
-          <v-icon>{{ i.icon }}</v-icon>
+          <v-icon ma-0 pa-5>{{ i.icon }}</v-icon>
         </v-btn>
       </div>
     </transition>
@@ -121,9 +121,6 @@ export default {
       this.toggle();
       this.$notifications("info", "Taille par défaut", "once");
     },
-    test() {
-      let q = document.querySelector(".v-list-item__title");
-    },
     init() {
       this.selectors = [];
       this.elements.forEach(i => {
@@ -148,7 +145,7 @@ export default {
       {
         class: "reset",
         f: this.zoomReset,
-        icon: "mdi-loop",
+        icon: "mdi-origin",
         color: this.$colors().green,
         tooltip: "Réinitialiser la taille de la police"
       },
