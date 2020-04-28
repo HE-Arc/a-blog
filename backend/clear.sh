@@ -12,5 +12,3 @@ python manage.py migrate
 python manage.py createadmin
 python manage.py createuser
 python manage.py createarticles
-
-python manage.py runserver
