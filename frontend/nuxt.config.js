@@ -6,7 +6,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "ABlog",
+    title: "aBlog",
     htmlAttrs: { lang: "fr" },
     link: [
       {

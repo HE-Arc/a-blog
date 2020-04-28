@@ -1,14 +1,7 @@
 <template>
   <v-app-bar class="navbar sticky" :color="color" short flat>
 
-    <v-tooltip right>
-      <template v-slot:activator="{ on }">
-        <nuxt-link class="logo display-1" to="/">
-          <span v-on="on">{{ $Settings().siteTitle }}</span>
-        </nuxt-link>
-      </template>
-      <span>Retour à l'accueil</span>
-    </v-tooltip>
+    <Logo/>
 
     <v-layout row justify-center>
       <v-flex xs6 lg7>
@@ -42,18 +35,14 @@
 import Categories from "./Categories";
 import SearchNav from "../widgets/SearchNav";
 import LoginButton from "./LoginButton";
+import Logo from '../Logo';
 
 export default {
   name: "AppBar",
-  components: { LoginButton, SearchNav, Categories },
+  components: { Logo, LoginButton, SearchNav, Categories },
   props: {
     drawer: { type: Boolean }
   },
-  data: () => ({
-    elevate: true,
-    sticky: true,
-    stickyHeight: 140
-  }),
   computed: {
     color() {
       return this.$vuetify.theme.dark ? "#424242" : "#fff";
@@ -64,17 +53,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
-
-.logo {
-  position: absolute;
-  left: 1em;
-  font-weight: 200;
-  text-decoration: none !important;
-  color: $secondary;
-  @media screen and (max-width: $mobile) {
-    left: 0.5em;
-  }
-}
 
 .login {
   position: absolute;
@@ -124,7 +102,6 @@ export default {
     display: block;
   }
 }
-
 .sticky {
   position: sticky;
   top: 0;

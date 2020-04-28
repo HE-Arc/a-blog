@@ -1,23 +1,25 @@
 <template>
   <Section>
     <h1 class="display-1 font-weight-light">
-      Bienvenue sur "A Blog".
+      Bienvenue sur mon blog.
     </h1>
     <div class="mb-4"></div>
-    <p class="mt-3 mb-5 main-text">
-      Ici, nous avons à faire à un proof concept
-      d'un blog auto suffisant et agréable à regarder. Une fois connecté en
-      tant qu'administrateur, il est simple et intuitif d'ordonner les catégories
-      existantes ou d'en créer de nouvelles. La rédaction d'articles et se fait
-      en ligne avec un éditeur dont la preview affiche exactement le résultat tel
-      qu'il sera publié.
+    <p class="mt-3 main-text">
+      Ce blog est un proof concept d'un blog auto suffisant, agréable à regarder
+      et simple à utiliser.
+    </p>
+    <p class="mb-5 main-text">
+      Une fois connecté en tant qu'administrateur, il est simple et intuitif
+      d'ordonner les catégories existantes ou d'en créer de nouvelles. La
+      rédaction d'articles et se fait en ligne grâce à un éditeur dont la
+      preview affiche fidèlement le résultat tel qu'il sera publié.
     </p>
   </Section>
 </template>
 
 <script>
 import Section from "../sections/Section";
-import Helpers from '../../assets/js/Helpers';
+import Helpers from "../../assets/js/Helpers";
 
 export default {
   name: "Welcome",
