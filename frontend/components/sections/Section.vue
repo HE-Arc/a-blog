@@ -1,7 +1,8 @@
 <template>
   <div class="mb-4">
+    <slot name="pre-header"></slot>
     <h1 v-if="title" class="mb-4">
-      <span class="display-1 font-weight-light">{{ title }}</span>
+      <span class="display-3 font-weight-light">{{ title }}</span>
     </h1>
     <slot></slot>
   </div>

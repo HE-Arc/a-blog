@@ -1,7 +1,7 @@
 <template>
   <Section>
     <h1 class="display-1 font-weight-light">
-      Bienvenue sur mon blog.
+      Bienvenue sur le blog.
     </h1>
     <div class="mb-4"></div>
     <p class="mt-3 main-text">
@@ -41,7 +41,6 @@ h1 {
 
 .main-text {
   font-size: larger;
-  //color: $secondary;
-  /*font-weight: bold;*/
+  font-weight: 300;
 }
 </style>

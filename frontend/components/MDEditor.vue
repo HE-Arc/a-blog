@@ -1,13 +1,12 @@
 <template>
   <v-container>
     <v-layout>
-      <v-flex xs-7>
+      <v-flex xs8 grow>
         <Article class="article" :article="article" :body="body" />
       </v-flex>
 
-      <v-flex>
+      <v-flex xs4 shrink>
         <v-card class="editor" elevation="0">
-          <v-card-text ma-0 pa-0>
             <no-ssr>
               <markdown-editor
                 v-model="body"
@@ -38,7 +37,6 @@
                 <v-icon>mdi-cancel</v-icon>
               </v-btn>
             </v-layout>
-          </v-card-text>
         </v-card>
       </v-flex>
     </v-layout>

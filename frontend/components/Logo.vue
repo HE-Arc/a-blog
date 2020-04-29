@@ -1,9 +1,9 @@
 <template>
   <v-tooltip right>
     <template v-slot:activator="{ on }">
-      <nuxt-link class="logo" to="/">
+      <nuxt-link class="logo" to="/" :style="logoStyle">
         <span class="ab">aB</span>
-        <span class="log">log</span>
+        <span class="log" :style="`margin-left: ${separation}px`">log</span>
       </nuxt-link>
     </template>
     <span>Retour à l'accueil</span>
@@ -12,7 +12,18 @@
 
 <script>
   export default {
+    props: {
+      size: { type: String, default: "25" },
+      separation: { type: String, default: "-5"},
+      absolute: { type: Boolean, default: true}
+    },
     name: 'Logo',
+    computed: {
+      logoStyle() {
+        let abs = this.absolute ? "absolute" : "relative"
+        return `font-size: ${this.size}px; position: ${abs}`;
+      },
+    },
   };
 </script>
 
@@ -22,9 +33,6 @@
 
   .logo {
     text-decoration: none !important;
-    position: absolute;
-    left: 1em;
-    font-size: 25px;
     
     :first-child {
       font-family: 'Roboto Slab', serif;
@@ -36,7 +44,6 @@
     }
     
     :last-child {
-      margin-left: -5px;
       font-family: 'Roboto Slab', serif;
       font-weight: 400;
       color: #363636;

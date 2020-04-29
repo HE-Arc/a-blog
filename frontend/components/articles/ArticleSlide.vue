@@ -1,28 +1,18 @@
 <template>
-  <Section :title="article.title">
+  <Section :title="article.title" class="presentation-section">
     <template v-slot:pre-header>
       <article-author-and-date class="mb-1" :article="article" />
     </template>
-    <navigation-arrows class="navigation-arrows-bottom mb-2" :article="article" />
-    <v-img
-      class="image"
-      :class="{ 'place-holder': article.image === 'Url vignette' }"
-      height="250"
-      :src="article.image"
-      :alt="article.title + 'image'"
-    />
+    <v-layout>
+      <v-flex v-show="article.weight == 1">
+        <Logo size="150" separation="-12" class="logo" :absolute="false" />
+      </v-flex>
+      <v-spacer />
+    </v-layout>
     <h4 class="mb-5 mt-5 text-xs-center headline font-weight-light">
       {{ article.description }}
     </h4>
     <div class="rendered" v-html="$md.render(body ? body : article.body)"></div>
-
-    <div class="end-line">
-      <v-divider class="line mr-4" :color="$colors().secondary" />
-      <span :style="`color: ${$colors().secondary}`" class="font-weight-bold">
-        FIN
-      </span>
-      <v-divider class="line ml-4" :color="$colors().secondary" />
-    </div>
   </Section>
 </template>
 
@@ -31,10 +21,10 @@ import Section from "../../components/sections/Section";
 import Helpers from "../../assets/js/Helpers";
 import ArticleAuthorAndDate from "../widgets/ArticleAuthorAndDate";
 import Logo from "../Logo";
-import NavigationArrows from '../widgets/NavigationArrows';
+import NavigationArrows from "../widgets/NavigationArrows";
 
 export default {
-  name: "ArticleDetail",
+  name: "ArticleSlide",
   components: { NavigationArrows, Logo, ArticleAuthorAndDate, Section },
   props: {
     article: { type: Object },
@@ -65,6 +55,10 @@ export default {
 .logo {
   margin-left: auto;
   margin-right: auto;
+}
+
+.presentation-section {
+  height: 750px;
 }
 
 .image {

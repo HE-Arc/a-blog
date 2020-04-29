@@ -8,7 +8,6 @@ class Field {
     this.rules = attrs.rules;
     this.cache = attrs.value;
     this.value = attrs.value;
-    this.required = attrs.required;
     this.fieldType = attrs.fieldType;
     this.required = !!attrs.rules.find(i => i.name === "req");
     this.disabled = false;

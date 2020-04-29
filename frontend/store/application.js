@@ -14,9 +14,4 @@ export const mutations = {
     state.publicDrawer = false;
     state.adminDrawer = true;
   },
-
-  SET_SIGNATURE(state, value) {
-    state.signature = value;
-    this.$notifications("success", "Signature mise à jour");
-  }
 };

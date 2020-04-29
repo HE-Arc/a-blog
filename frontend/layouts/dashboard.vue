@@ -88,7 +88,7 @@ export default {
 @import "../assets/scss/variables";
 
 .navbar {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid lightgray !important;
 }
 
 .navbar-title {

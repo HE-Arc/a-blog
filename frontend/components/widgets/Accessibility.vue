@@ -8,8 +8,8 @@
       fab
       elevation="1"
     >
-      <v-icon ma-0 pa-5 v-if="!activated">mdi-human-handsdown</v-icon>
-      <v-icon ma-0 pa-5 v-else>mdi-close</v-icon>
+      <v-icon v-if="!activated">mdi-human-handsdown</v-icon>
+      <v-icon v-else>mdi-close</v-icon>
     </v-btn>
 
     <transition name="fade">
@@ -22,7 +22,7 @@
           medium
           elevation="3"
         >
-          <v-icon ma-0 pa-5>mdi-theme-light-dark</v-icon>
+          <v-icon>mdi-theme-light-dark</v-icon>
         </v-btn>
 
         <v-btn
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-  import Helpers from '../../assets/js/Helpers';
-  
+import Helpers from "../../assets/js/Helpers";
+
 export default {
   name: "Zoom",
   data: () => ({
@@ -100,7 +100,7 @@ export default {
       });
     },
     zoomIn() {
-      if (this.level < 5) {
+      if (this.level < this.max) {
         this.changeFontSize(this.increment);
         this.level++;
       } else {
@@ -108,7 +108,7 @@ export default {
       }
     },
     zoomOut() {
-      if (this.level > -5) {
+      if (this.level > -this.max) {
         this.changeFontSize(-this.increment);
         this.level--;
       } else {

@@ -1,3 +1,5 @@
+![](https://i.imgur.com/YKnw7pu.png)
+
 # DevWeb: aBlog (DRF & Nuxt)
 
 * Avril 2020

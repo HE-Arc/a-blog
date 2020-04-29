@@ -1,7 +1,7 @@
 <template>
   <v-app-bar class="navbar sticky" :color="color" short flat>
 
-    <Logo/>
+    <Logo class="nav-logo"/>
 
     <v-layout row justify-center>
       <v-flex xs6 lg7>
@@ -60,6 +60,11 @@ export default {
   @media screen and (max-width: $mobile) {
     right: 0.5px;
   }
+}
+
+.nav-logo {
+  position: relative;
+  left: 1em;
 }
 
 .navbar {

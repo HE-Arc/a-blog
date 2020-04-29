@@ -170,7 +170,6 @@ class Fields {
         icon: "mdi-brain",
         size: 6,
         many: true,
-        // rules: []
         rules: []
       },
       {

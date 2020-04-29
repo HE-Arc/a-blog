@@ -5,11 +5,11 @@
         <template v-slot:activator="{ on }">
           <v-btn
             text
-            
+            small
             v-on="on"
-            :disabled="previousDisabled"
+            :disabled="previousDisabled || isAdministration"
             color="blue-grey"
-            class="pa-0 white--text"
+            class="pa-0 white--text caption"
             style="font-weight: 300"
             @click="gotoPrevious()"
           >
@@ -26,11 +26,11 @@
         <template v-slot:activator="{ on }">
           <v-btn
             text
-            
+            small
             v-on="on"
-            :disabled="nextDisabled"
+            :disabled="nextDisabled || isAdministration"
             color="blue-grey"
-            class="pa-0 white--text"
+            class="pa-0 white--text caption"
             style="font-weight: 300"
             @click="gotoNext()"
           >
@@ -51,6 +51,9 @@ export default {
     article: { type: Object }
   },
   computed: {
+    isAdministration() {
+      return this.$route.path.includes("/administration");
+    },
     categoryArticles() {
       let category = this.article.category;
       return this.$store.getters["categories/published"](category);

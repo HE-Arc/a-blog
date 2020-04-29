@@ -34,6 +34,7 @@ export default {
     Footer,
     AppBar
   },
+  transition: "default",
   data: () => ({
     drawer: false,
     primaryDrawer: {
@@ -67,5 +68,17 @@ export default {
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }
 </style>

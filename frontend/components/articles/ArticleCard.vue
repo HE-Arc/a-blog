@@ -17,7 +17,7 @@
         <v-card-title class="ma-0 pa-2 card-title">
           <v-list-item three-line class="title-container">
             <v-list-item-avatar>
-              <v-img :src="article.image"></v-img>
+              <v-img :src="author.picture"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
@@ -54,6 +54,9 @@ export default {
       } else {
         return "grey lighten-4";
       }
+    },
+    author() {
+      return this.$store.getters["users/user"](this.article.author)
     }
   },
   methods: {

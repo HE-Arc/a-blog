@@ -8,7 +8,7 @@ export default class User {
     this.last_name = data.last_name;
     this.full_name = data.full_name;
     this.short_name = data.short_name;
-    this.picture = data.picture;
+    this.picture = data.picture || "";
 
   }
 

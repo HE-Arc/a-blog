@@ -1,7 +1,7 @@
 <template>
   <Section :title="category.name">
     <v-container grid-list-xl class="px-0 pt-0">
-      <p class="mb-5 font-weight-light">{{ category.description }}</p>
+      <p class="mb-5 main-text">{{ category.description }}</p>
       <v-layout row wrap>
         <v-flex
           v-for="article in articles(category.id)"
@@ -47,4 +47,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .main-text {
+    font-size: larger;
+    font-weight: 300;
+  }
+</style>
