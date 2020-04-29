@@ -1,14 +1,7 @@
 from rest_framework import viewsets
 
-from apps.articles.serializers import (
-    ArticleSerializer,
-    CategorySerializer,
-)
-
-from apps.articles.models import (
-    Article,
-    Category,
-)
+from apps.articles.serializers import ArticleSerializer, CategorySerializer
+from apps.articles.models import Article, Category
 
 
 class ArticleViewSet(viewsets.ModelViewSet):

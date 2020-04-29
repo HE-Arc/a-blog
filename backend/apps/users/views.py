@@ -12,6 +12,8 @@ from apps.users.serializers import UserSerializer, UserWriteSerializer
 
 
 
+
+
 class UserViewSet(MixedPermissionModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -34,6 +36,7 @@ class UserViewSet(MixedPermissionModelViewSet):
         if kwargs.get('pk') == 'current':
             return Response(self.get_serializer(request.user).data)
         return super().retrieve(request, args, kwargs)
+
 
     def get_serializer_class(self):
         if self.action in ['list', 'retrieve']:
