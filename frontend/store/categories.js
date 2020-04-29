@@ -5,9 +5,13 @@ export const state = () => ({
 });
 
 export const getters = {
-  articles: (state, getters, rootState) => id => {
-    return rootState.articles.data.filter(i => i.category === id);
-  }
+  category: state => id => state.data.find(i => i.id == id),
+
+  articles: (state, getters, rootState) => id =>
+    rootState.articles.data.filter(i => i.category === id),
+
+  published: (state, getters) => id =>
+    getters.articles(id).filter(i => i.published)
 };
 
 export const mutations = {
@@ -48,8 +52,8 @@ export const actions = {
       .post(Category.endpoint(), Category.createForm(data))
       .then(res => commit("CREATE", res.data))
       .catch(err => {
-        console.log("error callback")
-        this.$notifications("error")
+        console.log("error callback");
+        this.$notifications("error");
       });
   },
   update({ commit }, data) {
@@ -71,9 +75,16 @@ export const actions = {
     commit("UPDATE_WEIGHT", data);
     state.data.forEach(i => {
       this.$axios
-        .patch(Category.endpoint(i.id), Category.createForm({ weight: i.weight }))
+        .patch(
+          Category.endpoint(i.id),
+          Category.createForm({ weight: i.weight })
+        )
         .then(() =>
-          this.$notifications("success", `${Category.objectName()} mise à jour`, "once")
+          this.$notifications(
+            "success",
+            `${Category.objectName()} mise à jour`,
+            "once"
+          )
         )
         .catch(err =>
           this.$notifications("error", "Une erreur est survenue", "once")
@@ -81,5 +92,3 @@ export const actions = {
     });
   }
 };
-
-

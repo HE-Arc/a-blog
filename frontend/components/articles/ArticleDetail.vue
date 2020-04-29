@@ -39,7 +39,7 @@ import Helpers from '../../assets/js/Helpers';
 import ArticleAuthorAndDate from '../widgets/ArticleAuthorAndDate';
 
 export default {
-  name: "Article",
+  name: "ArticleDetail",
   components: { ArticleAuthorAndDate, Section },
   props: {
     article: { type: Object },

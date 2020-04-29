@@ -33,14 +33,12 @@ export default {
   computed: {
     category() {
       const id = parseInt(this.$route.params.id);
-      return this.$store.state.categories.data.find(i => i.id === id);
+      return this.$store.getters["categories/category"](id);
     }
   },
   methods: {
     articles(id) {
-      return this.$store.getters["categories/articles"](id).filter(
-        i => i.published
-      );
+      return this.$store.getters["categories/published"](id);
     }
   },
   mounted() {

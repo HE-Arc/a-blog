@@ -6,7 +6,7 @@
       <app-bar class="navbar" @drawer="toggleDrawer" />
       <v-container grid-list-md fluid>
         <v-layout class="wrapper" row wrap justify-center>
-          <v-flex class="mb-5" xs12 sm11 lg7>
+          <v-flex class="mb-2" xs12 sm11 lg7>
             <BreadCrumb class="mt-2"/>
           </v-flex>
           <v-flex xs12 sm11 lg7>

@@ -5,8 +5,8 @@ export const state = () => ({
 });
 
 export const getters = {
+  article: state => id => state.data.find(i => i.id == id),
   byName: state => title => state.data.find(i => i.title == title),
-
   category: (state, getters, rootState) => id => {
     return rootState.categories.data.find(i => i.id == id);
   },
