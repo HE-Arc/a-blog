@@ -46,6 +46,8 @@
 
 ## Configs
 
+* [tuto](https://www.codementor.io/@overiq/deploying-django-project-to-digitalocean-xt5s538tp)
+
 ### Supervisor
 
 ```conf
